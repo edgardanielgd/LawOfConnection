@@ -15,7 +15,7 @@ module.exports = async ( sequelize ) => {
     through: ParticipationModel
   });
   ProjectModel.belongsToMany(UserModel, {
-    through: UserModel
+    through: ParticipationModel
   });
   UserModel.belongsToMany(ProjectModel, {
     through: CommentModel

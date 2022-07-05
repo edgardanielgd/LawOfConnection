@@ -1,5 +1,5 @@
 <html><head>
-<title>Schema Report for database: mydb</title>
+<title>Schema Report for database: academicprojects</title>
 <style>
         td,th {
         text-align:left;
@@ -29,7 +29,208 @@
         </style>
       </head>
      <body>
-<h1>Schema Report for database: mydb</h1>
+<h1>Schema Report for database: academicprojects</h1>
 <a id="home">Table List </a><br /><ul>
+<li><a href="#comment">comment </a></li>
+<li><a href="#country">country </a></li>
+<li><a href="#field">field </a></li>
+<li><a href="#project">project </a></li>
+<li><a href="#reaction">reaction </a></li>
+<li><a href="#team">team </a></li>
+<li><a href="#teamparticipation">teamparticipation </a></li>
+<li><a href="#topic">topic </a></li>
+<li><a href="#topicapplication">topicapplication </a></li>
+<li><a href="#user">user </a></li>
 </ul>
+<a id="comment"></a><table style="width:100%"><caption>Table: comment </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idComentario</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>cmtTitle</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>cmtBody</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>cmtFooter</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>idUser</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+<tr><td>idProject</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+<tr><td>idRepliedComment</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="country"></a><table style="width:100%"><caption>Table: country </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idCountry</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>cntName</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="field"></a><table style="width:100%"><caption>Table: field </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idField</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>fldName</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>fldDescription</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="project"></a><table style="width:100%"><caption>Table: project </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idProject</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>pryName</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>pryDescription</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>pryPoints</td><td>DATETIME</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>idTeam</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="reaction"></a><table style="width:100%"><caption>Table: reaction </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idReaction</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>rctType</td><td>ENUM('like', 'dislike', 'star')</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>idComment</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+<tr><td>idAuthor</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="team"></a><table style="width:100%"><caption>Table: team </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idTeam</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>teamName</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="teamparticipation"></a><table style="width:100%"><caption>Table: teamparticipation </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>role</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>idUser</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>idTeam</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="topic"></a><table style="width:100%"><caption>Table: topic </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idTopic</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>tpcName</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>tpcHTMLBody</td><td>TEXT</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>idField</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="topicapplication"></a><table style="width:100%"><caption>Table: topicapplication </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>applicationDescription</td><td>TEXT</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>idProject</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>idTopic</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="user"></a><table style="width:100%"><caption>Table: user </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idUser</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>usrNickname</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>usrProfileDescription</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>usrEmail</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>usrFirstName</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>usrLastName</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>usrPassword</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>NULL</td><td></td></tr>
+<tr><td>createdAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>updatedAt</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>idCountry</td><td>INT</td><td>No</td><td>No</td><td>Yes</td><td>NULL</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
 </body></html>

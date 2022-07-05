@@ -4,20 +4,20 @@ class Project extends Model { }
 
 module.exports = ( sequelize) => {
   Project.init({
-    id: {
+    idProject: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    name: {
+    pryName: {
       allowNull: false,
       type: DataTypes.STRING
     },
-    description: {
+    pryDescription: {
       type: DataTypes.STRING
     },
-    date_of_creation: {
+    pryPoints: {
       type: DataTypes.DATE
     }
   }, {

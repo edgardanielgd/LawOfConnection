@@ -4,25 +4,30 @@ class User extends Model { }
 
 module.exports = ( sequelize ) => {
   User.init({
-    id: {
+    idUser: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    nickname: {
+    usrNickname: {
       allowNull: false,
       type: DataTypes.STRING
     },
-    profile_description: {
+    usrProfileDescription: {
       type: DataTypes.STRING
     },
-    email: {
+    usrEmail: {
       type: DataTypes.STRING
     },
-    country: {
-        allowNull: false,
-        type: DataTypes.INTEGER
+    usrFirstName: {
+      type: DataTypes.STRING
+    },
+    usrLastName: {
+      type: DataTypes.STRING
+    },
+    usrPassword: {
+      type: DataTypes.STRING
     }
   }, {
     sequelize,

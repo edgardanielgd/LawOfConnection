@@ -1,26 +1,22 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Field extends Model { }
+class Reaction extends Model { }
 
 module.exports = ( sequelize ) => {
-  Field.init({
-    idField: {
+  Reaction.init({
+    idReaction: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    fldName: {
+    rctType: {
       allowNull: false,
-      type: DataTypes.STRING
-    },
-    fldDescription: {
-      allowNull: true,
-      type: DataTypes.STRING
-    },
+      type: DataTypes.ENUM( "like" , "dislike", "star")
+    }
   }, {
     sequelize,
-    modelName: 'Field',
+    modelName: 'Reaction',
   });
-  return Field;
+  return Reaction;
 };

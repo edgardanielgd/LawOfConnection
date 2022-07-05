@@ -1,15 +1,15 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Participation extends Model { }
+class TeamParticipation extends Model { }
 
 module.exports = ( sequelize ) => {
-  Participation.init({
+  TeamParticipation.init({
     role : {
       type: DataTypes.STRING
     }
   }, {
     sequelize,
-    modelName: 'Participation',
+    modelName: 'TeamParticipation',
   });
-  return Participation;
+  return TeamParticipation;
 };

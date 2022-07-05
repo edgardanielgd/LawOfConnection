@@ -1,28 +1,22 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Comment extends Model { }
+class Team extends Model { }
 
 module.exports = ( sequelize ) => {
-  Comment.init({
-    idComentario: {
+  Team.init({
+    idTeam: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    cmtTitle: {
+    teamName: {
       allowNull: false,
       type: DataTypes.STRING
     },
-    cmtBody: {
-      type: DataTypes.STRING
-    },
-    cmtFooter: {
-      type: DataTypes.STRING
-    }
   }, {
     sequelize,
-    modelName: 'Comment',
+    modelName: 'Team',
   });
-  return Comment;
+  return Team;
 };

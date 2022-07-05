@@ -16,11 +16,11 @@ exports.register = async (req, res) =>{
         const country = req.body.country;
         let passHash = await bcryptjs.hash(password, 8);
         (await User).create({
-            nickname : nickname,
-            password : passHash,
-            profile_description : profileDescription,
-            email : email,
-            country : country
+            usrNickname : nickname,
+            usrPassword : passHash,
+            usrProfileDescription : profileDescription,
+            usrEmail : email,
+            idCountry : 1
         }).then(result => {
             res.send("REGISTRADO CORRECTAMENTE "+result)
             console.log(result);

@@ -1,28 +1,26 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Comment extends Model { }
+class Topic extends Model { }
 
 module.exports = ( sequelize ) => {
-  Comment.init({
-    idComentario: {
+  Topic.init({
+    idTopic: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    cmtTitle: {
+    tpcName: {
       allowNull: false,
       type: DataTypes.STRING
     },
-    cmtBody: {
-      type: DataTypes.STRING
+    tpcHTMLBody: {
+      allowNull: true,
+      type: DataTypes.TEXT
     },
-    cmtFooter: {
-      type: DataTypes.STRING
-    }
   }, {
     sequelize,
-    modelName: 'Comment',
+    modelName: 'Topic',
   });
-  return Comment;
+  return Topic;
 };

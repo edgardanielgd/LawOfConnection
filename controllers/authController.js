@@ -7,7 +7,7 @@ const temp = async () => {
 };
 var User = temp();
 
-exports.register = async (req, res) =>{
+exports.register = async (req, res, next) =>{
     try{
         const nickname = req.body.nickname;
         const password = req.body.password;
@@ -22,14 +22,18 @@ exports.register = async (req, res) =>{
             usrEmail : email,
             idCountry : 1
         }).then(result => {
-            res.send("REGISTRADO CORRECTAMENTE "+result)
-            console.log(result);
+            res.json({
+                status: "success",
+                message: "REGISTRADO CORRECTAMENTE "
+            });
         }).catch(err => {
-            res.send("ERROR")
+            res.json({
+                status: "error",
+                message: "ERROR WHILE CREATING A NEW USER "
+            });
             console.log(err);
         })
     }catch(error){
-        res.send("ERROR")
-        console.log(error);
+        next( error );
     }
 }

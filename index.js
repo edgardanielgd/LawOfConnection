@@ -4,6 +4,7 @@ const envData = require("./config");
 const router = require("./routes");
 const bodyparser = require("body-parser");
 const { errorHandler } = require("./middlewares/error.handler");
+
 const app = express();
 
 app.use( bodyparser.json() );

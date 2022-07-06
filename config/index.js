@@ -7,7 +7,9 @@ const envData = {
     DBHOST : process.env.dbHost,
     DBPORT : process.env.dbPort,
     DBNAME : process.env.dbName,
-    PORT : process.env.PORT || 3000
+    PORT : process.env.PORT || 3000,
+    JWT_HEADER_KEY: process.env.jwtHeaderKey,
+    JWT_KEY: process.env.jwtSecretKey,
 }
 
 module.exports = envData;

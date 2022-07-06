@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../controllers/authController');
+const { validationHandler } = require("./../middlewares/validation.handler");
 
-router.get('/', (req, res) => {
+router.get('/', validationHandler, (req, res) => {
     res.send('PÁGINA DE INICIO')
 })
 

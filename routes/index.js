@@ -1,20 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../controllers/authController');
-const { validationHandler } = require("./../middlewares/validation.handler");
 
-router.get('/', validationHandler, (req, res) => {
+const { authenticationHandler } = require("../middlewares/authentication.handler");
+
+const teamsRouter = require("./teams.router");
+const authRouter = require("./authentication.router");
+
+router.use( authRouter );
+router.use( "/teams", teamsRouter );
+
+
+router.get('/', authenticationHandler, (req, res) => {
     res.send('PÁGINA DE INICIO')
 })
-
-router.get('/login', (req, res) => {
-    res.send('INICIO DE SESION')
-})
-
-router.get('/register', (req, res) => {
-    res.send('REGISTRO')
-})
-
-router.post('/register', auth.register);
 
 module.exports = router;

@@ -1,27 +1,18 @@
-const { JWT_HEADER_KEY, JWT_KEY } = require("./../config");
-const jwt = require("jsonwebtoken");
+const boom = require("@hapi/boom");
 
-function validationHandler( req, res, next ){
+function validationHandler (schema, req_field) {
+    return (req, res, next) => {
+        const validation = schema.validate( 
+            req[req_field] ,
+            {
+                abortEarly: false
+            }
+        );
 
-    try{
-        const token = req.header( JWT_HEADER_KEY );
-
-        const verified = jwt.verify( token, JWT_KEY );
-
-        if( verified ){
+        if( validation.error ) {
+            next( boom.badRequest( validation.error ));
+        }else
             next();
-        }else{
-            res.status(401).json({
-                status: "error",
-                message: "You have to log in first in order to use this function!"
-            });
-        }
-    }catch( e ){
-
-        res.status(401).json({
-            status: "error",
-            message: "You have to log in first in order to use this function!"
-        });
     }
 }
 

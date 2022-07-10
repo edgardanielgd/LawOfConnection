@@ -9,7 +9,7 @@ const Team = require("./team.model.js");
 const Topic = require("./topic.model.js");
 const TeamParticipation = require("./user-team.model.js");
 
-module.exports = async ( sequelize ) => {
+module.exports = ( sequelize ) => {
   const UserModel = User( sequelize );
   const FieldModel = Field( sequelize );
   const ProjectModel = Project( sequelize );
@@ -82,7 +82,6 @@ module.exports = async ( sequelize ) => {
   UserModel.hasMany( ReactionModel, {
     foreignKey: "idAuthor"
   }  ); // User Reaction one to many relationship
-
-  await sequelize.sync();
+  
   return sequelize;
 }

@@ -1,5 +1,6 @@
 const express = require('express');
-const { TeamCreate, TeamCreateRefactor }= require("../schemas/team.schema");
+const { TeamCreate, TeamCreateRefactor, TeamAddMembers, TeamAddMembersRefactor } 
+    = require("../schemas/team.schema");
 const router = express.Router();
 const { authenticationHandler } = require("./../middlewares/authentication.handler");
 const { validationHandler } = require("./../middlewares/validation.handler");
@@ -12,6 +13,14 @@ router.post(
     validationHandler( TeamCreate, "body" ),
     RequestRefactorHandler( TeamCreateRefactor, "body"),
     team.createTeam    
+);
+
+router.post(
+    "/addTeamMember",
+    authenticationHandler,
+    validationHandler( TeamAddMembers, "body" ),
+    RequestRefactorHandler( TeamAddMembersRefactor, "body"),
+    team.addTeamMembers
 );
 
 module.exports = router;   

@@ -12,9 +12,9 @@ router.post(
     auth.login
 )
 
-router.get('/register', (req, res) => {
-    res.send('REGISTRO')
-})
+// router.get('/register', (req, res) => {
+//     res.send('REGISTRO')
+// })
 
 router.post(
     '/register',

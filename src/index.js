@@ -3,12 +3,22 @@ const envData = require("./config");
 const router = require("./routes");
 const bodyparser = require("body-parser");
 const db = require("./db");
+const cors = require("cors");
+const path = require("path");
 
 const { logErrors, boomErrorHandler, errorHandler, ormErrorHandler } = require("./middlewares/error.handler");
 
 const app = express();
 
+app.use( cors() );
+
 app.use( bodyparser.json() );
+
+app.use(
+    express.static(
+        path.resolve(__dirname, './../public')
+    )
+);
 
 app.listen(envData.PORT, async () => {
     console.log("Listening at " + envData.PORT);
@@ -20,6 +30,11 @@ app.listen(envData.PORT, async () => {
     app.use( boomErrorHandler );
     app.use( ormErrorHandler );
     app.use( errorHandler );
-    
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, './../public', 'index.html'));
+    });
 });
+
+
 

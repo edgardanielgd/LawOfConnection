@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express.Router();
 
+const router = express.Router();
 const { authenticationHandler } = require("../middlewares/authentication.handler");
 
 const teamsRouter = require("./teams.router");
@@ -10,8 +10,8 @@ router.use( authRouter );
 router.use( "/teams", teamsRouter );
 
 
-router.get('/', authenticationHandler, (req, res) => {
-    res.send('PÁGINA DE INICIO')
-})
+// router.get('/', authenticationHandler, (req, res) => {
+//     res.send('PÁGINA DE INICIO')
+// });
 
-module.exports = router;
+module.exports = router.use("api/v1", router );

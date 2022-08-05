@@ -2,14 +2,14 @@ const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const { Promisify } = require('util');
 const db = require("../db");
-const { JWT_KEY, JWT_HEADER_KEY } = require("../config");
+const { JWT_KEY, JWT_COOKIE_NAME } = require("../config");
 const boom = require("@hapi/boom");
 const UsersService = require("../services/users.service");
 
 
 const service = new UsersService();
 
-const genToken = ( userId ) => {
+const setToken = ( userId, res ) => {
     const data = {
         time: Date(),
         userId
@@ -17,10 +17,11 @@ const genToken = ( userId ) => {
 
     const token = jwt.sign( data, JWT_KEY);
 
-    return {
+    res.cookie(
+        JWT_COOKIE_NAME,
         token,
-        token_header_key: JWT_HEADER_KEY,
-    }
+        { signed: true }
+    );
     
 }
 
@@ -30,11 +31,10 @@ exports.register = async (req, res, next) =>{
             req.body 
         ).then(result => {
             
-            const token_data = genToken( result.idUser, res );
+            setToken( result.idUser, res );
 
             res.json({
-                ...token_data,
-                status: "success",
+                statusMessage: "success",
                 message: "User registered correctly"
             });
 
@@ -52,11 +52,10 @@ exports.login = async ( req, res, next) => {
             req.body 
         ).then(result => {
             
-            const token_data = genToken( result.idUser, res );
-
+            setToken( result.idUser, res );
+            
             res.json({
-                ...token_data,
-                status: "success",
+                statusMessage: "success",
                 message: "User logged in successfully"
             });
 

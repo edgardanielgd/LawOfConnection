@@ -11,7 +11,7 @@ exports.createTeam = async ( req, res, next ) => {
 
         res.json({
             ...newTeam,
-            status: "success",
+            statusMessage: "success",
             message: "Team created successfully"
         });
     } catch( err ){
@@ -30,7 +30,7 @@ exports.addTeamMembers = async( req, res, next ) => {
         
         res.json({
             ...results,
-            status: "success",
+            statusMessage: "success",
             message: "Operation completed, check results array"
         });
 

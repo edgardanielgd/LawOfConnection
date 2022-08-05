@@ -1,11 +1,12 @@
-const { JWT_HEADER_KEY, JWT_KEY } = require("../config");
+const { JWT_COOKIE_NAME, JWT_KEY } = require("../config");
 const jwt = require("jsonwebtoken");
 const boom = require("@hapi/boom");
 
 function authenticationHandler( req, res, next ){
 
     try{
-        const token = req.header( JWT_HEADER_KEY );
+        
+        const token = req.signedCookies[ JWT_COOKIE_NAME ];
 
         const data = jwt.verify( token, JWT_KEY );
         

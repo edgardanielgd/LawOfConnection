@@ -5,12 +5,14 @@ const bodyparser = require("body-parser");
 const db = require("./db");
 const cors = require("cors");
 const path = require("path");
+const cookiesParser = require("cookie-parser");
 
 const { logErrors, boomErrorHandler, errorHandler, ormErrorHandler } = require("./middlewares/error.handler");
 
 const app = express();
 
 app.use( cors() );
+app.use( cookiesParser( envData.COOKIE_KEY) );
 
 app.use( bodyparser.json() );
 

@@ -3,9 +3,9 @@ import React, { Component } from "react";
 // import Container from "react-bootstrap/Container";
 // import Form from "react-bootstrap/Form";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
-import Layout from "./Layout";
+import Login from "./../pages/Login";
+import Register from "./../pages/Register";
+import Layout from "./../pages/Layout";
 
 class App extends Component{
 

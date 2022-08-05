@@ -51,6 +51,8 @@ class UsersService{
             throw boom.conflict( "Invalid country ID" );
         }
 
+        data.usrPassword = await bcrypt.hash( data.usrPassword, 10 );
+
         const newUser = await sequelize.models.User.create( data );
         return newUser;
     }

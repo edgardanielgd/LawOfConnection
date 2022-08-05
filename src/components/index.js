@@ -1,5 +1,6 @@
 import React from "react";
 import App from "./UI/App";
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 import { createRoot } from 'react-dom/client';
 
